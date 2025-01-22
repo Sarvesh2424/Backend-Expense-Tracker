@@ -5,9 +5,13 @@ const { v4: uuidv4 } = require("uuid");
 const app = express();
 app.use(express.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/expenses").then(() => {
-  console.log("connected to mongodb");
-});
+mongoose
+  .connect(
+    "mongodb+srv://10650sarvesh:choc2424@cluster0.7h1gq.mongodb.net/expenses"
+  )
+  .then(() => {
+    console.log("connected to mongodb");
+  });
 
 const expenseSchema = new mongoose.Schema({
   id: { type: String, required: true, unique: true },
